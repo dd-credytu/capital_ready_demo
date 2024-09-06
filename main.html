@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Layout Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>CAPITAL READY</h2>
+            <ul class="menu">
+                <li>
+                    <span>Dashboard</span>
+                    <ul class="submenu">
+                        <li>Overview</li>
+                        <li>Compliance Metrics</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Regulations</span>
+                    <ul class="submenu">
+                        <li>CDFI Certification</li>
+                        <li>Fair Lending</li>
+                        <li>AML/KYC</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Policies & Procedures</span>
+                    <ul class="submenu">
+                        <li>Document Management</li>
+                        <li>Policy Review</li>
+                        <li>Training Programs</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Audits & Reporting</span>
+                    <ul class="submenu">
+                        <li>Internal Audits</li>
+                        <li>External Audits</li>
+                        <li>Regulatory Reporting</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Settings</span>
+                    <ul class="submenu">
+                        <li>User Management</li>
+                        <li>Notifications</li>
+                        <li>System Configuration</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="top-menu">
+                <ul class="menu">
+                    <li><i class="fas fa-home"></i> Home</li>
+                    <li><i class="fas fa-user"></i> Profile</li>
+                    <li><i class="fas fa-envelope"></i> Messages</li>
+                    <li><i class="fas fa-bell"></i> Notifications</li>
+                    <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Compliance Requirements Dashboard</h1>
+                <div class="box overview">
+                    <h2>Overview</h2>
+                    <div class="widget-container">
+                        <div class="widget donut-chart">
+                            <h3>Compliance Status</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="color-box compliant"></span>Compliant</span>
+                                <span class="legend-item"><span class="color-box missing"></span>Missing</span>
+                                <span class="legend-item"><span class="color-box in-progress"></span>In Progress</span>
+                            </div>
+                            <canvas id="donutChart"></canvas>
+                        </div>
+                        <div class="widget-column">
+                            <div class="widget">
+                                <h3>Overall Progress</h3>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%;"></div>
+                                    <span class="progress-text">75%</span>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <h3>Risk Level</h3>
+                                <div class="risk-indicator">
+                                    <div class="risk-level" data-level="medium"></div>
+                                    <span class="risk-text">Medium</span>
+                                </div>
+                            </div>
+                            <p class="explanation">
+                                This dashboard provides a quick overview of your compliance status. The donut chart shows the proportion of compliant, non-compliant, and in-progress items. The progress bar indicates overall completion, while the colored circle represents the current risk level. Green signifies low risk, yellow medium risk, and red high risk.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-row">
+                    <div class="box-half">
+                        <h2>Supporting Documents</h2>
+                        <table class="document-table">
+                            <thead>
+                                <tr>
+                                    <th>Document</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-file-alt"></i> CDFI Designation Confirmation</td>
+                                    <td><i class="fas fa-check-circle"></i> Review Completed</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-alt"></i> Underwriting Policy</td>
+                                    <td><i class="fas fa-check-circle"></i> Review Completed</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-alt"></i> Annual Financial Statements</td>
+                                    <td><i class="fas fa-check-circle"></i> Review Completed</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-alt"></i> Risk Assessment Report</td>
+                                    <td><i class="fas fa-clock"></i> Review Pending</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-alt missing"></i> Board Resolution</td>
+                                    <td><i class="fas fa-times-circle missing-icon"></i> Missing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-half">
+                        <h2>File Upload</h2>
+                        <div class="file-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag and drop files here</p>
+                            <p>or</p>
+                            <button class="upload-btn">Choose Files</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h2>Compliance Metrics</h2>
+                    <div class="metrics-container">
+                        <div class="metric">
+                            <i class="fas fa-tasks"></i>
+                            <h3>Total Requirements</h3>
+                            <p class="metric-value">120</p>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Completed</h3>
+                            <p class="metric-value">90</p>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>High Priority</h3>
+                            <p class="metric-value">15</p>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Days to Deadline</h3>
+                            <p class="metric-value">30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.querySelectorAll('.sidebar .menu > li > span').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = event.target.parentElement;
+                parent.classList.toggle('collapsed');
+            });
+        });
+        // Donut Chart
+        const ctx = document.getElementById('donutChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Compliant', 'Non-Compliant', 'In Progress'],
+                datasets: [{
+                    data: [60, 10, 30],
+                    backgroundColor: ['#4CAF50', '#F44336', '#FFC107'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1.5,  // Increased from 1 to make it slightly oval
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        boxWidth: 10,
+                        fontSize: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false // Hide the legend to save space
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

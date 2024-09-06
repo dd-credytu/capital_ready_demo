@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 300px; /* Increased from 250px to 300px for more space */
+    background-color: #333;
+    padding: 30px;
+    color: white;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 24px; /* Increased from default */
+    text-align: center; /* Center align "Capital Ready" */
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.top-menu {
+    background-color: #00BFFF;
+    padding: 0 20px; /* Keep horizontal padding */
+    height: 60px; /* Set a fixed height for the menu bar */
+    display: flex;
+    align-items: center;
+}
+
+.top-menu .menu {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%; /* Ensure the menu takes full height */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.top-menu .menu li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px; /* Added padding to menu items for more space */
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.top-menu .menu li i {
+    margin-right: 5px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.content h1 {
+    margin-bottom: 30px; /* Increased space under the heading */
+}
+
+.menu {
+    list-style-type: none;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.top-menu .menu li {
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0; /* Added vertical padding to menu items */
+}
+
+.top-menu .menu li i {
+    margin-right: 5px;
+}
+
+.box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.box-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.box-half {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.box-half h2 {
+    margin-bottom: 20px; /* Add spacing under the heading */
+}
+
+.sidebar .menu li {
+    margin-bottom: 18px; /* Increased from 15px for more vertical spacing */
+}
+
+.sidebar .menu > li {
+    margin-bottom: 25px; /* Increased from 20px for more space between main menu items */
+    font-size: 16px; /* Increased from 14px */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Adjust the menu items to prevent wrapping */
+.sidebar .menu > li > span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.sidebar .menu > li > span::after {
+    content: '\25B6';
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    margin-left: 10px; /* Add space between text and caret */
+}
+
+.sidebar .menu > li.expanded > span::after {
+    transform: rotate(90deg);
+}
+
+.sidebar .submenu {
+    display: block; /* Changed from 'none' to 'block' */
+    list-style-type: none;
+    margin-top: 12px; /* Increased from 10px */
+    padding-left: 18px; /* Increased from 15px */
+}
+
+.sidebar .menu > li.collapsed .submenu {
+    display: none;
+}
+
+.sidebar .submenu li {
+    font-size: 14px; /* Increased from 12px */
+    font-weight: normal;
+    text-transform: none;
+    margin-bottom: 10px; /* Increased from 8px for more spacing */
+}
+
+/* Ensure submenu items don't wrap either */
+.sidebar .submenu li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .top-menu .menu {
+        flex-direction: column;
+    }
+    .top-menu .menu li {
+        margin-bottom: 10px;
+    }
+}
+
+.overview .widget-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.overview .widget {
+    margin-bottom: 30px; /* Increased from 20px to add more space */
+}
+
+.overview .donut-chart {
+    flex: 0 0 25%; /* Reduced from 30% to make it smaller */
+}
+
+.overview .widget-column {
+    flex: 0 0 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.donut-chart canvas {
+    max-width: 100%;
+    height: auto !important; /* Force the height to adjust automatically */
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.progress-bar .progress {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-bar .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-weight: bold;
+}
+
+.risk-indicator {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.risk-level {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.risk-level::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.risk-level[data-level="low"] {
+    background-color: #4CAF50;
+}
+
+.risk-level[data-level="medium"] {
+    background-color: #FFC107;
+}
+
+.risk-level[data-level="high"] {
+    background-color: #F44336;
+}
+
+.risk-text {
+    font-weight: bold;
+}
+
+.explanation {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    margin-top: 20px;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    font-size: 12px;
+}
+
+.color-box {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+.color-box.compliant { background-color: #4CAF50; }
+.color-box.non-compliant { background-color: #F44336; }
+.color-box.in-progress { background-color: #FFC107; }
+
+.document-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.document-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 16px; /* Increase overall font size */
+}
+
+.document-list .fa-file-alt {
+    font-size: 24px; /* Increase icon size */
+    margin-right: 15px;
+    color: #333;
+}
+
+.document-list .missing {
+    color: #999;
+}
+
+.missing-text {
+    color: #999;
+    font-style: italic;
+}
+
+.file-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.file-upload-area i {
+    font-size: 48px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.file-upload-area p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.upload-btn {
+    background-color: #00BFFF; /* Changed to Deep Sky Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.upload-btn:hover {
+    background-color: #0099CC; /* Darker shade for hover state */
+}
+
+.missing-icon {
+    color: #F44336; /* Red color for the X icon */
+    margin-right: 10px;
+}
+
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.document-table th,
+.document-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.document-table thead {
+    background-color: #00BFFF;
+    color: white;
+}
+
+.document-table th {
+    font-weight: bold;
+}
+
+.document-table .fa-file-alt {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.document-table .fa-check-circle {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.document-table .fa-clock {
+    color: #FFC107;
+    margin-right: 10px;
+}
+
+.document-table .missing {
+    color: #999;
+}
+
+.missing-text {
+    color: #999;
+    font-style: italic;
+}
+
+/* Existing styles for box-half, etc. remain the same */
+
+.metrics-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.metric {
+    flex-basis: calc(25% - 20px);
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.metric i {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.metric h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Specific colors for each metric */
+.metric:nth-child(1) i, .metric:nth-child(1) .metric-value {
+    color: #00BFFF; /* Total Requirements - keep as Deep Sky Blue */
+}
+
+.metric:nth-child(2) i, .metric:nth-child(2) .metric-value {
+    color: #4CAF50; /* Completed - Green */
+}
+
+.metric:nth-child(3) i, .metric:nth-child(3) .metric-value {
+    color: #FFC107; /* High Priority - Yellow */
+}
+
+.metric:nth-child(4) i, .metric:nth-child(4) .metric-value {
+    color: #555; /* Days to Deadline - Dark Gray */
+}
+
+.color-box.missing { background-color: #F44336; }
